@@ -1,56 +1,65 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
-}
+document.addEventListener('DOMContentLoaded', function() {
+    const passwordDisplay = document.getElementById('passwordDisplay');
+    const generateBtn = document.getElementById('generateBtn');
+    const copyBtn = document.getElementById('copyBtn');
+    const passwordLength = document.getElementById('passwordLength');
+    const uppercaseCheckbox = document.getElementById('uppercaseCheckbox');
+    const lowercaseCheckbox = document.getElementById('lowercaseCheckbox');
+    const numbersCheckbox = document.getElementById('numbersCheckbox');
+    const symbolsCheckbox = document.getElementById('symbolsCheckbox');
+    const passwordStrength = document.getElementById('passwordStrength');
 
-.container {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 350px;
-}
+    generateBtn.addEventListener('click', generatePassword);
+    copyBtn.addEventListener('click', copyPassword);
 
-h1 {
-    text-align: center;
-    margin-bottom: 1rem;
-}
+    function generatePassword() {
+        const length = parseInt(passwordLength.value);
+        const useUppercase = uppercaseCheckbox.checked;
+        const useLowercase = lowercaseCheckbox.checked;
+        const useNumbers = numbersCheckbox.checked;
+        const useSymbols = symbolsCheckbox.checked;
 
-input[type="text"], input[type="number"] {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-}
+        const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
+        const numberChars = '0123456789';
+        const symbolChars = '!@#$%^&*()_+-=[]{}|;:,.<>?';
 
-button {
-    width: 100%;
-    padding: 0.5rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    margin-bottom: 1rem;
-}
+        let allowedChars = '';
+        if (useUppercase) allowedChars += uppercaseChars;
+        if (useLowercase) allowedChars += lowercaseChars;
+        if (useNumbers) allowedChars += numberChars;
+        if (useSymbols) allowedChars += symbolChars;
 
-button:hover {
-    background-color: #0056b3;
-}
+        if (allowedChars === '') {
+            alert('Please select at least one character type.');
+            return;
+        }
 
-.options {
-    margin-bottom: 1rem;
-}
+        let password = '';
+        for (let i = 0; i < length; i++) {
+            const randomIndex = Math.floor(Math.random() * allowedChars.length);
+            password += allowedChars[randomIndex];
+        }
 
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-}
+        passwordDisplay.value = password;
+        updatePasswordStrength(password);
+    }
 
-#passwordStrength {
-    font-weight: bold;
-}
+    function copyPassword() {
+        passwordDisplay.select();
+        document.execCommand('copy');
+        alert('Password copied to clipboard!');
+    }
+
+    function updatePasswordStrength(password) {
+        let strength = 'Weak';
+        if (password.length >= 8) {
+            strength = 'Medium';
+            if (password.length >= 12 && /[A-Z]/.test(password) && /[a-z]/.test(password) && /[0-9]/.test(password) && /[^A-Za-z0-9]/.test(password)) {
+                strength = 'Strong';
+            }
+        }
+        passwordStrength.textContent = strength;
+        passwordStrength.className = strength.toLowerCase();
+    }
+});
