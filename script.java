@@ -62,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
         passwordStrength.textContent = strength;
         passwordStrength.className = strength.toLowerCase();
     }
-
     // Generate a password initially
     generatePassword();
 });
