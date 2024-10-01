@@ -1,48 +1,189 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ultimate Password Generator</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Générateur de Mot de Passe</title>
+    <meta name="description"
+        content="Générateur de mot de passe en ligne pour créer des mots de passe forts et sécurisés. Protégez vos comptes avec des mots de passe inviolables.">
+    <meta name="keywords"
+        content="générateur de mot de passe, mot de passe fort, sécurité en ligne, protection des comptes">
+    <meta name="author" content="Votre Nom">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta property="og:title" content="Générateur de Mot de Passe">
+    <meta property="og:description"
+        content="Créez des mots de passe forts et sécurisés avec notre générateur en ligne.">
+    <meta property="og:image" content="https://www.votresite.com/images/og-image.jpg">
+    <meta property="og:url" content="https://www.votresite.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Générateur de Mot de Passe">
+    <meta name="twitter:description"
+        content="Créez des mots de passe forts et sécurisés avec notre générateur en ligne.">
+    <meta name="twitter:image" content="https://www.votresite.com/images/twitter-image.jpg">
 </head>
+
 <body>
-    <div class="container">
-        <h1>Ultimate Password Generator</h1>
-        <p>Your secure password</p>
-        <input type="text" id="passwordDisplay" readonly>
-        <button id="generateBtn">Generate Password</button>
-        
-        <div class="options">
-            <label for="passwordLength">Password Length:
-                <input type="number" id="passwordLength" value="8" min="4" max="50">
-            </label>
-            
-            <label>
-                <input type="checkbox" id="uppercaseCheckbox" checked>
-                Include Uppercase
-            </label>
-            
-            <label>
-                <input type="checkbox" id="lowercaseCheckbox" checked>
-                Include Lowercase
-            </label>
-            
-            <label>
-                <input type="checkbox" id="numbersCheckbox" checked>
-                Include Numbers
-            </label>
-            
-            <label>
-                <input type="checkbox" id="symbolsCheckbox" checked>
-                Include Symbols
-            </label>
+
+    <header class="header">
+        <div class="container">
+            <h1>Le Meilleur Générateur de</h1>
+            <h1>Mot de Passe</h1>
+            <p>Créez des mots de passe inviolables instantanément !</p>
         </div>
-        
-        <button id="copyBtn">Copy</button>
-        
-        <p>Password Strength: <span id="passwordStrength"></span></p>
+    </header>
+
+    <div class="security-message">
+        <p class="animated-text">Votre sécurité en ligne commence ici</p>
     </div>
-    <script src="script.js"></script>
+
+    <!-- Nouvelle section pour l'image -->
+    <section class="image-section">
+        <img src="IMAGES/bouclier.jpeg" alt="Illustration d'un bouclier" class="blog-post-image">
+    </section>
+
+    <section class="container">
+        <div class="generator" id="password-generator">
+            <h2 class="slogan-centre">Forgez votre bouclier numérique</h2>
+            <label for="length">Indiquez la longueur du mot de passe :</label>
+            <input type="number" id="length" name="length" min="4" max="30" value="25">
+
+            <div class="options">
+                <label for="uppercase">
+                    <input type="checkbox" id="uppercase" checked>
+                    Inclure des majuscules
+                </label>
+                <label for="numbers">
+                    <input type="checkbox" id="numbers" checked>
+                    Inclure des chiffres
+                </label>
+                <label for="symbols">
+                    <input type="checkbox" id="symbols">
+                    Inclure des symboles
+                </label>
+            </div>
+
+            <button id="generate" aria-label="Générer un mot de passe">Créer mot de passe invincible</button>
+
+            <div id="result">
+                <input type="text" id="password" readonly aria-label="Mot de passe généré"
+                    placeholder="Votre clé de sécurité apparaîtra ici">
+                <button id="copy-btn">Cliquez ici pour copier votre nouveau mot de passe sécurisé</button>
+            </div>
+        </div>
+
+        <!-- Nouvelle section pour l'image -->
+        <section class="image-section">
+            <img src="IMAGES/coffre-fort.jpeg" alt="Illustration d'un coffre-fort" class="blog-post-image">
+        </section>
+
+        <div class="generator additional-box">
+            <h2>Testez tout de suite</h2>
+            <h2>l'Efficacité du Mot de Passe</h2>
+            <input type="password" id="password-test" placeholder="Entrez le mot de passe à tester">
+            <button id="test-button">Tester</button>
+            <div id="strength-meter">
+                <div id="strength-bar"></div>
+            </div>
+            <p id="strength-text"></p>
+        </div>
+
+        <section class="image-background">
+            <!-- Nous n'avons pas besoin de balise img ici, l'image sera en arrière-plan -->
+        </section>
+
+        <div class="why-use-message">
+            <p class="animated-text">Pourquoi Utiliser un Générateur de Mot de Passe ?</p>
+        </div>
+
+        <section class="blog-section">
+            <h2 class="blog-main-title">Le guide ultime pour créer un mot de passe fort et sécurisé</h2>
+
+            <article class="blog-post">
+                <h3 class="blog-post-title">L'Importance d'un Mot de Passe Fort</h3>
+                <div class="blog-post-meta">Publié le 25 sept. 2024</div>
+                <img src="IMAGES/mot_de_passe-fort.jpeg" alt="Illustration d'un mot de passe fort"
+                    class="blog-post-image">
+                <div class="blog-post-content">
+                    <h4>Pas de compromis sur la sécurité</h4>
+                    <p>Dans le monde numérique d'aujourd'hui, où nos vies personnelles et professionnelles sont
+                        inextricablement liées à Internet, la sécurité numérique est devenue une préoccupation majeure.
+                        Avec la multiplication des plateformes en ligne nécessitant des identifiants de connexion, la
+                        création d'un mot de passe fort et sécurisé est plus importante que jamais. Un mot de passe
+                        robuste est votre première ligne de défense contre les cyberattaques et les violations de
+                        données, protégeant vos informations confidentielles contre les regards indiscrets.</p>
+
+                    <h4>L'importance d'un mot de passe fort</h4>
+                    <p>Un mot de passe fort est bien plus qu'une simple chaîne de caractères. C'est la clé qui protège
+                        vos comptes en ligne, vos données personnelles, vos informations financières et bien plus
+                        encore. Un mot de passe faible, facile à deviner ou à cracker, peut ouvrir la porte à toutes
+                        sortes de problèmes, du vol d'identité à la perte de données sensibles. En revanche, un mot de
+                        passe fort et sécurisé agit comme un rempart numérique, rendant la tâche des pirates
+                        informatiques beaucoup plus difficile, voire impossible.</p>
+                    <h4>Comment créer un mot de passe fort ?</h4>
+                    <p>Un mot de passe fort devrait contenir :</p>
+                    <ul>
+                        <li>Au moins 12 caractères</li>
+                        <li>Un mélange de lettres majuscules et minuscules</li>
+                        <li>Des chiffres</li>
+                        <li>Des caractères spéciaux</li>
+                    </ul>
+
+                    <h4>Mots de passe infaillibles : la puissance des phrases secrètes</h4>
+                    <p>Les phrases secrètes offrent une approche créative et mémorable pour construire des mots de passe
+                        robustes. En choisissant une phrase personnelle et significative, vous posez les fondations d'un
+                        mot de passe unique. L'utilisation des premières lettres de chaque mot crée une base solide,
+                        tandis que l'intégration astucieuse de chiffres et de symboles ajoute une couche de complexité
+                        supplémentaire, décourageant les tentatives de piratage. Cette méthode combine sécurité et
+                        facilité de mémorisation, vous permettant de protéger vos données sans craindre d'oublier la clé
+                        d'accès à votre univers numérique.</p>
+                    <h4>Les meilleures solutions pour créer un mot de passe fort</h4>
+                    <ul>
+                        <li>Générateur de mot de passe : Un outil en ligne comme celui proposé sur www.motdepassefort.fr
+                            peut générer des mots de passe forts et aléatoires, difficiles à deviner.</li>
+                        <li>Gestionnaire de mots de passe : Cet outil vous permet de créer, stocker et gérer tous vos
+                            mots de passe de manière sécurisée, sans avoir à les mémoriser</li>
+                        <li>Techniques de substitution : Remplacez des lettres par des symboles ou des chiffres pour
+                            complexifier votre mot de passe (par exemple, "p@$$w0rd" au lieu de "password").</li>
+                        <li>Phrases secrètes : Créez un mot de passe à partir d'une phrase que vous seul connaissez, en
+                            utilisant les premières lettres de chaque mot et en ajoutant des chiffres et des symboles.
+                        </li>
+                    </ul>
+                    <p>Utilisez <a href="#password-generator">notre générateur de mot de passe ci-dessus</a> pour créer
+                        des mots de passe forts instantanément !</p>
+                    <h4>Les pièges à éviter pour des mots de passe inviolables</h4>
+                    <p>Évitez ces pièges communs de la sécurité des mots de passe : le recyclage incessant du même mot
+                        de passe pour tous vos comptes, l'utilisation d'informations personnelles facilement devinables,
+                        l'excès de longueur rendant la mémorisation difficile, le stockage négligent dans des documents
+                        non sécurisés, et l'omission cruciale des caractères spéciaux qui renforcent la complexité. Ces
+                        erreurs apparemment anodines peuvent compromettre gravement la sécurité de vos données, ouvrant
+                        la porte aux cyberattaques et aux violations de confidentialité.</p>
+                </div>
+            </article>
+
+        </section>
+
+        <footer class="footer">
+            &copy; 2023 Générateur de Mot de Passe
+        </footer>
+
+        <script src="script.js"></script>
+
+        <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Générateur de Mot de Passe",
+      "url": "https://www.votresite.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.votresite.com/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
 </body>
+
 </html>
